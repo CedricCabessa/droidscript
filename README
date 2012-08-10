@@ -1,0 +1,4 @@
+Some scripts to be used with android.
+
+  * droidemu.sh : launch android emulator from a fresh compile with network bridged.
+The mac adress is generated from the host and is uniq.
