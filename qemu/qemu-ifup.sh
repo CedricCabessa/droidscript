@@ -18,7 +18,6 @@ if [[ $(wc -l /proc/net/dev | awk '{print $1}') -gt 5 ]]; then
 fi
 DEV=$(sed -n 's/[[:space:]]*\(.*\):.*/\1/p' /proc/net/dev | grep -v ^lo$ | grep -v ^$1$)
 
-ipmask=$(ip addr show $DEV | awk '/inet\ /  {print $2}')
 IPMASK=$(ip addr show $DEV | sed -n 's/.*inet\ \([0-9\./]*\).*/\1/p')
 GATEWAY=$(route -n | awk '/^0.0.0.0/ {print $2}')
 BROADCAST=$(ip addr show $DEV |  sed -n 's/.*inet\ .*brd\ \([0-9\.]*\).*/\1/p')
